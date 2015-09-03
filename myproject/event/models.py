@@ -5,28 +5,32 @@ from django.contrib.postgres.fields import IntegerRangeField
 class Venue(models.Model):
 
     master_contact =  models.CharField(
-        verbose_name=_("Contact No of Owner"),
+        verbose_name= "Contact No of Owner",
         max_length=15, blank=False, null=False)
 
     legal_id =  models.CharField(
-        verbose_name = _("Official and Legal stuff"),
+        verbose_name = "Official and Legal stuff",
         max_length=25, blank=False, null=False)
 
     our_id =  models.CharField(
-        verbose_name = _("Our id"),
+        verbose_name = "Our id",
         max_length=25, unique=True, blank=False, null=False)
 
     title =  models.CharField(
-        verbose_name = _("Title"),
+        verbose_name = "Title",
         max_length=40, blank=False, null=False)
 
     cover_image = models.ForiegnKey(
         Photo,
-        verbose_name=_("Cover Photo"),
+        verbose_name= "Cover Photo",
         blank=True, null=True, editable=True)
 
     gallery = models.ForiegnKey(
         Gallery,
+        blank=True, null=True, editable=True)
+
+    gallery_past = models.ForiegnKey(
+        Gallery,verbose_name= "Past events Gallery",
         blank=True, null=True, editable=True)
 
     long_position = models.DecimalField (max_digits=8, decimal_places=3)
@@ -60,6 +64,8 @@ class Venue(models.Model):
     extra_int_param_1 = models.IntegerField(null=True,blank=True)
     extra_int_param_2 = models.IntegerField(null=True,blank=True)
     
+    reviews = ArrayField(models.CharField(max_length=150, blank=True), size=10)
+
 def __str__(self):
         return self.title
 
