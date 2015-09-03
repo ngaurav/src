@@ -1,6 +1,6 @@
 from django.db import models
 from photologue.models import Photo, Gallery
-from django.contrib.postgres.fields import IntegerRangeField
+from django.contrib.postgres.fields import IntegerRangeField, ArrayField
 
 class Venue(models.Model):
 
