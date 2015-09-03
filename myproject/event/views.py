@@ -1,28 +1,23 @@
 from django.shortcuts import render
+from .models import Venue
+from django.views.generic import DetailView, ListView, TemplateView
 
 class VenueListView(ListView):
-    model = Venue
+    context_object_name = 'venues'
+    template_name = 'home.html'
 
     def get_queryset(self):
-        queryset = super(QuizListView, self).get_queryset()
-        return queryset.filter(draft=False).filter(is_exam=True)
+        return Venue.objects.filter(featured=True)
 
 
 class VenueDetailView(DetailView):
-    model = Quiz
-    slug_field = 'url'
+    model = Venue
+    slug_field = 'our_id'
+    context_object_name = 'venue'
+    template_name = 'venue.html'
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
-
-        if self.object.is_exam:
-            raise PermissionDenied
-
-        if self.object.draft and not request.user.has_perm('quiz.change_quiz'):
-            raise PermissionDenied
-
-        if self.object.login_required and not request.user.is_authenticated():
-            return render(request, 'single_complete.html')
 
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
