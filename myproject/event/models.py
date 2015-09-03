@@ -20,16 +20,16 @@ class Venue(models.Model):
         verbose_name = "Title",
         max_length=40, blank=False, null=False)
 
-    cover_image = models.ForiegnKey(
+    cover_image = models.ForeignKey(
         Photo,
         verbose_name= "Cover Photo",
         blank=True, null=True, editable=True)
 
-    gallery = models.ForiegnKey(
+    gallery = models.ForeignKey(
         Gallery,
         blank=True, null=True, editable=True)
 
-    gallery_past = models.ForiegnKey(
+    gallery_past = models.ForeignKey(
         Gallery,verbose_name= "Past events Gallery",
         blank=True, null=True, editable=True)
 
