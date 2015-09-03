@@ -38,7 +38,7 @@ class Venue(models.Model):
 
     cost_per_person = models.IntegerField (null=False,blank=False)
 
-    group_size = IntegerRangeField()
+    group_size = IntegerRangeField(help_text="a integer range with two inputs")
 
     duration = models.DurationField()
 
@@ -65,6 +65,8 @@ class Venue(models.Model):
     extra_int_param_2 = models.IntegerField(null=True,blank=True)
     
     reviews = ArrayField(models.CharField(max_length=150, blank=True), size=10)
+
+    featured = BooleanField(default=False)
 
 def __str__(self):
         return self.title
