@@ -26,7 +26,7 @@ class Venue(models.Model):
         blank=True, null=True, editable=True)
 
     gallery = models.ForeignKey(
-        Gallery,
+        Gallery,related_name='main_gallery'
         blank=True, null=True, editable=True)
 
     gallery_past = models.ForeignKey(
