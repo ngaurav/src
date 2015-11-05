@@ -16,8 +16,8 @@ class Collect(models.Model):
         (POST_GRADUATE, 'Post Graduate'),
     )
     qualification = models.CharField(max_length=2,
-                                      choices=YEAR_IN_SCHOOL_CHOICES,
-                                      default=GRADUATE)
+                                    choices=YEAR_IN_SCHOOL_CHOICES,
+                                    default=GRADUATE)
     NONE = 'NN'
     PART_TIME = 'PT'
     FULL_TIME = 'FT'
@@ -27,8 +27,8 @@ class Collect(models.Model):
         (FULL_TIME, 'Full Time'),
     )
     work_status = models.CharField(max_length=2,
-                                      choices=STATUS_CHOICES,
-                                      default=NONE)
+                                    choices=STATUS_CHOICES,
+                                    default=NONE)
     NEVER = 'NV'
     PAST = 'PT'
     PRESENT = 'PR'
@@ -38,41 +38,41 @@ class Collect(models.Model):
         (PRESENT, 'Present'),
     )
     experience = models.CharField(max_length=2,
-                                      choices=EXPERIENCE_CHOICES,
-                                      default=NONE)
+                                    choices=EXPERIENCE_CHOICES,
+                                    default=NONE)
     hours = models.SmallIntegerFieldmodels.CharField(default=2, blank=False, null=False, verbose_name="Hours per week - you can contribute")
     NOT_COMFORTABLE = 'NC'
     OKAY = 'OK'
     VERY_GOOD = 'VG'
     PROFICIENCY_CHOICES = (
-    	(NOT_COMFORTABLE, 'Not Comfortable'),
+        (NOT_COMFORTABLE, 'Not Comfortable'),
         (OKAY, 'Okay'),
         (VERY_GOOD, 'Very Good'),
     )
     math = models.CharField(max_length=2,
-                                      choices=PROFICIENCY_CHOICES,
-                                      default=OKAY)
-	english = models.CharField(max_length=2,
-                                      choices=PROFICIENCY_CHOICES,
-                                      default=OKAY)
-	FINANCIAL = 'FN'
-	FLEXIBILITY = 'FX'
-	STRESS = 'SF'
-	ENJOYMENT = 'EJ'
-	HELPING = 'HS'
-	PASSION_CHOICES = (
-    	(FINANCIAL, 'financial incentive'),
+                                    choices=PROFICIENCY_CHOICES,
+                                    default=OKAY)
+    english = models.CharField(max_length=2,
+                                    choices=PROFICIENCY_CHOICES,
+                                    default=OKAY)
+    FINANCIAL = 'FN'
+    FLEXIBILITY = 'FX'
+    STRESS = 'SF'
+    ENJOYMENT = 'EJ'
+    HELPING = 'HS'
+    PASSION_CHOICES = (
+        (FINANCIAL, 'financial incentive'),
         (FLEXIBILITY, 'flexibility'),
         (STRESS, 'stress free'),
         (ENJOYMENT, 'enjoyment'),
         (HELPING, 'helping society'),
     )
     passion = models.CharField(max_length=2,
-                                      choices=PASSION_CHOICES,
-                                      default=FINANCIAL)
+                                    choices=PASSION_CHOICES,
+                                    default=FINANCIAL)
     age = models.SmallIntegerField(default=30, blank=False, null=False, verbose_name="Your age")
     married = models.BooleanField(default=False, blank=False, null=False, verbose_name="Are you married?")
     gender = models.BooleanField(default=True, blank=False, null=False, verbose_name="Are you female?")
     child_age = models.SmallIntegerField(default=0, blank=False, null=False, verbose_name="Age of your first child")
     def __unicode__(self):
-            return self.user.username
+        return self.user.username
