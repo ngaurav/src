@@ -9,7 +9,7 @@ def add_page(request):
             form.save(commit=True)
             return register(request)
         else:
-            print form.errors
+            print (form.errors)
     else:
         form = CollectForm()
     return render(request, 'collect/add_page.html', {'form': form})
