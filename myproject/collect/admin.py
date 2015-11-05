@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Collect
 
-# Register your models here.
+class CollectAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Collect, CollectAdmin)

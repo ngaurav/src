@@ -75,4 +75,4 @@ class Collect(models.Model):
     gender = models.BooleanField(default=True, blank=False, null=False, verbose_name="Are you female?")
     child_age = models.SmallIntegerField(default=0, blank=False, null=False, verbose_name="Age of your first child")
     def __unicode__(self):
-        return self.user.username
+        return self.first_name
