@@ -38,9 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'photologue',
-    'sortedm2m',
-    'event',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,7 +81,7 @@ DATABASES = {
         'NAME': 'mydb',
         'USER': 'user1',
         'PASSWORD': 'secret1',
-        'HOST': 'aug3-1.ciwylusg758c.us-east-1.rds.amazonaws.com',
+        'HOST':'nov5.ciwylusg758c.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
