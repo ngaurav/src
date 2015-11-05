@@ -40,7 +40,7 @@ class Collect(models.Model):
     experience = models.CharField(max_length=2,
                                     choices=EXPERIENCE_CHOICES,
                                     default=NONE)
-    hours = models.SmallIntegerFieldmodels.CharField(default=2, blank=False, null=False, verbose_name="Hours per week - you can contribute")
+    hours = models.SmallIntegerField(default=2, blank=False, null=False, verbose_name="Hours per week - you can contribute")
     NOT_COMFORTABLE = 'NC'
     OKAY = 'OK'
     VERY_GOOD = 'VG'
